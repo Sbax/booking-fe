@@ -29,15 +29,15 @@ export const SessionSelector: React.FC<{
 
   return (
     <>
-      <section className="flex md:flex-row flex-col md:justify-between space-y-4 md:space-y-0 my-4">
-        <section className="flex md:flex-row flex-col md:space-x-2 space-y-4 md:space-y-0">
+      <section className="flex md:flex-row flex-col flex-wrap md:justify-between -m-2 pb-4">
+        <section className="m-2">
           <SessionTimeSlotSelector
             selectTimeSlot={setTimeSlot}
             selectedTimeSlot={timeSlot}
           />
         </section>
 
-        <label className="flex items-center gap-2 input-bordered input">
+        <label className="flex items-center gap-2 m-2 input-bordered input">
           <input
             type="text"
             placeholder={t("search")}
@@ -56,7 +56,6 @@ export const SessionSelector: React.FC<{
               <XMarkIcon className="w-4 h-4" onClick={() => setSearch("")} />
             </button>
           }
-
           <MagnifyingGlassIcon className="w-6 h-6 text-neutral-400" />
         </label>
       </section>

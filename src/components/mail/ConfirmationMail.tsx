@@ -14,6 +14,7 @@ import path from "path";
 import * as React from "react";
 
 const baseUrl = process.env.BASE_URL;
+const defaultLocale = process.env.DEFAULT_LOCALE || "en";
 
 interface ConfirmationEmailProps {
   subject: string;
@@ -22,7 +23,12 @@ interface ConfirmationEmailProps {
 }
 
 function loadMarkdownTemplate(): string {
-  const filePath = path.join(process.cwd(), "messages/confirmation-email.md");
+  const filePath = path.join(
+    process.cwd(),
+    "messages/",
+    defaultLocale,
+    "/confirmation-email.md"
+  );
   return fs.readFileSync(filePath, "utf8");
 }
 
@@ -57,8 +63,6 @@ export const ConfirmationEmail: React.FC<ConfirmationEmailProps> = async ({
     bookingLink,
     mail,
   });
-
-  console.log(markdownContent);
 
   return (
     <Html lang={locale}>
