@@ -1,15 +1,16 @@
 import { GoogleSheetsScope, SheetRange } from "@/types";
+import config from "@/utils/config";
 import { google } from "googleapis";
 
 export const getAuth = (scopes: GoogleSheetsScope[]) =>
   new google.auth.GoogleAuth({
     credentials: {
       type: "service_account",
-      project_id: process.env.GOOGLE_PROJECT_ID,
-      private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      client_email: process.env.GOOGLE_CLIENT_EMAIL,
-      client_id: process.env.GOOGLE_CLIENT_ID,
+      project_id: config.googleProjectId,
+      private_key_id: config.googlePrivateKeyId,
+      private_key: config.googlePrivateKey?.replace(/\\n/g, "\n"),
+      client_email: config.googleClientEmail,
+      client_id: config.googleClientId,
     },
     scopes,
   });

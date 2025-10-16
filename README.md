@@ -103,15 +103,17 @@ The following environment variables are used to connect to the Google Sheets API
 
 ### Google Sheets Ranges
 
-- **SHEET_ID**: The ID of the Google Sheet used for all the data.
+- **SESSIONS_SHEET_ID**: The ID of the Google Sheet used for the session data.
 - **SHEET_SESSION_RANGE**: The range in the sheet where session-related data is stored.
+- **BOOKINGS_SHEET_ID**: The ID of the Google Sheet used for the booking data.
 - **SHEET_BOOKINGS_RANGE**: The range in the sheet where booking data is stored.
 
   Example:
 
   ```bash
-  SHEET_ID=your-google-sheet-id
+  SESSIONS_SHEET_ID=your-google-sheet-id
   SHEET_SESSION_RANGE='Session!A1:Z100'
+  BOOKINGS_SHEET_ID=another-google-sheet-id
   SHEET_BOOKINGS_RANGE='Bookings!A1:Z100'
   ```
 

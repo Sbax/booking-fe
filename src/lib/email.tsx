@@ -3,10 +3,9 @@ import { Booking, Session } from "@/types";
 import { render } from "@react-email/render";
 import { getTranslations } from "next-intl/server";
 import { Resend } from "resend";
+import config from "@/utils/config";
 
-const resendEnabled = process.env.RESEND_ENABLED;
-const resend = new Resend(process.env.RESEND_API_KEY);
-const sender = process.env.MAIL_SENDER;
+const resend = new Resend(config.resendApiKey);
 
 export async function sendConfirmationEmail({
   booking,
@@ -19,7 +18,7 @@ export async function sendConfirmationEmail({
 }) {
   const { email } = booking;
   const t = await getTranslations("email");
-  if (!resendEnabled) return;
+  if (!config.resendEnabled) return;
 
   const subject = update ? t("subject.update") : t("subject.create");
 
@@ -28,7 +27,7 @@ export async function sendConfirmationEmail({
   );
 
   return resend.emails.send({
-    from: sender as string,
+    from: config.mailSender,
     to: email,
     subject,
     html: emailHtml,

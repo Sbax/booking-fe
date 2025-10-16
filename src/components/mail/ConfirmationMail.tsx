@@ -1,4 +1,5 @@
 import { Booking, Session } from "@/types";
+import config from "@/utils/config";
 import { timeSlots } from "@/utils/timeSlots";
 import {
   Body,
@@ -13,9 +14,6 @@ import { getLocale } from "next-intl/server";
 import path from "path";
 import * as React from "react";
 
-const baseUrl = process.env.BASE_URL;
-const defaultLocale = process.env.DEFAULT_LOCALE || "en";
-
 interface ConfirmationEmailProps {
   subject: string;
   booking: Booking;
@@ -26,7 +24,7 @@ function loadMarkdownTemplate(): string {
   const filePath = path.join(
     process.cwd(),
     "messages/",
-    defaultLocale,
+    config.defaultLocale,
     "/confirmation-email.md"
   );
   return fs.readFileSync(filePath, "utf8");
@@ -51,8 +49,7 @@ export const ConfirmationEmail: React.FC<ConfirmationEmailProps> = async ({
   const { title, timeSlot } = session;
 
   const selectedTimeSlot = timeSlots[timeSlot].label;
-  const mail = process.env.MAIL_CONTACT || "";
-  const bookingLink = `${baseUrl}/bookings/${bookingId}`;
+  const bookingLink = `${config.baseUrl}/bookings/${bookingId}`;
 
   const rawMarkdown = loadMarkdownTemplate();
   const markdownContent = interpolateMarkdown(rawMarkdown, {
@@ -61,7 +58,7 @@ export const ConfirmationEmail: React.FC<ConfirmationEmailProps> = async ({
     title,
     selectedTimeSlot,
     bookingLink,
-    mail,
+    mail: config.mailContact,
   });
 
   return (

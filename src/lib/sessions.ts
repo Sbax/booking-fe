@@ -1,9 +1,10 @@
 import { getBookings } from "@/lib/bookings";
 import { getSheetData } from "@/lib/sheets";
-import { Session, SheetRange } from "@/types";
+import { Session } from "@/types";
+import config from "@/utils/config";
 
-const spreadsheetId = process.env.SHEET_ID as string;
-const sessionRange = process.env.SHEET_SESSION_RANGE as SheetRange;
+const spreadsheetId = config.sessionsSheetId;
+const sessionRange = config.sessionsRange;
 
 type SessionRow = [
   Session["id"],

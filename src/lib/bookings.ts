@@ -4,17 +4,18 @@ import {
   getSheetData,
   updateRowById,
 } from "@/lib/sheets";
-import { Booking, SheetRange } from "@/types";
+import { Booking } from "@/types";
+import config from "@/utils/config";
 
-const spreadsheetId = process.env.SHEET_ID as string;
-const range = process.env.SHEET_BOOKINGS_RANGE as SheetRange;
+const spreadsheetId = config.bookingsSheetId;
+const range = config.bookingsRange;
 
 type BookingRow = [
   Booking["id"],
   Booking["name"],
   Booking["email"],
   Booking["seats"],
-  Booking["sessionId"]
+  Booking["sessionId"],
 ];
 
 export async function getBookings(): Promise<Booking[]> {
@@ -28,7 +29,7 @@ export async function getBookings(): Promise<Booking[]> {
   const bookings = bookingsRows.map((row) => {
     const [, id, name, email, seats, sessionId] = row as [
       string,
-      ...BookingRow
+      ...BookingRow,
     ];
 
     return {
