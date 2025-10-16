@@ -32,13 +32,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     mode: "onChange",
   });
 
-  const { availableSeats, id: sessionId } = selectedSession;
+  const { availableSeats, maxPlayers, id: sessionId } = selectedSession;
 
   const { invalidateCache: invalidateSessionCache } = useSessions();
 
   const bookableSeats = (() => {
     if (defaultBooking && defaultBooking.sessionId === sessionId) {
-      return availableSeats + defaultBooking.seats;
+      return Math.min(availableSeats + defaultBooking.seats, maxPlayers);
     }
 
     return availableSeats;
