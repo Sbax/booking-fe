@@ -8,9 +8,6 @@ export async function GET() {
     const sessions = await getSessions();
     return NextResponse.json(sessions, {
       status: 200,
-      headers: new Headers({
-        "Cache-Control": "public, max-age=60, immutable",
-      }),
     });
   } catch (error) {
     return NextResponse.json(
