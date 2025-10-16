@@ -756,6 +756,19 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@propelauth/nextjs@^0.3.15":
+  version "0.3.15"
+  resolved "https://registry.yarnpkg.com/@propelauth/nextjs/-/nextjs-0.3.15.tgz#d6877161ac25bf679557aa0a428e380bc0f52adf"
+  integrity sha512-ZCQ5FJFC0UrYPApQBMh8FFf5WJZvGCWppk3mDGjJhXaTaHpFTa99X52osJfvgFJWkY1S1ODf2oCzrUAjW8ktPw==
+  dependencies:
+    "@propelauth/node-apis" "^2.1.33"
+    jose "^5.10.0"
+
+"@propelauth/node-apis@^2.1.33":
+  version "2.1.33"
+  resolved "https://registry.yarnpkg.com/@propelauth/node-apis/-/node-apis-2.1.33.tgz#eb2cf297f38a6be25db9bcc3a0a80e9aa8ab3464"
+  integrity sha512-WnoiXI9YbZ6uqHJBy1cJrVuSJ0YTqzcAI3+RBX6KzVU6io/9v7xyr1wKw8LHLh8OjZttzT5HXBesfP7Q1MSyGQ==
+
 "@react-email/body@0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@react-email/body/-/body-0.0.10.tgz#bb8f0c8f6375a6e93ad841b4693807733a62709c"
@@ -3337,6 +3350,11 @@ jiti@^1.21.6:
   version "1.21.7"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.7.tgz#9dd81043424a3d28458b193d965f0d18a2300ba9"
   integrity sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==
+
+jose@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-5.10.0.tgz#c37346a099d6467c401351a9a0c2161e0f52c4be"
+  integrity sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==
 
 js-beautify@^1.14.11:
   version "1.15.4"

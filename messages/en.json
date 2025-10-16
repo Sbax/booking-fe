@@ -59,7 +59,22 @@
       "allDays": "Any day",
       "allTimeSlots": "Any time slot"
     },
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "Table": {
+      "timeSlot": "Time Slot",
+      "tableNumber": "Table Number",
+      "title": "Title",
+      "ruleset": "Ruleset",
+      "masterName": "Master",
+      "description": "Description",
+      "minPlayers": "Min Players",
+      "maxPlayers": "Max Players",
+      "availableSeats": "Available Seats"
+    },
+    "Totals": {
+      "bookingsTotal": "Session Total",
+      "readyToStart": "Ready to Start"
+    }
   },
   "Metadata": {
     "description": "Example of a booking frontend",

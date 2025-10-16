@@ -1,4 +1,11 @@
-export type TimeSlot = 1 | 2 | 3 | 4 | 5;
+export enum TimeSlot {
+  DAY_1_MORNING = 1,
+  DAY_1_AFTERNOON = 2,
+
+  DAY_2_MORNING = 3,
+  DAY_2_AFTERNOON = 4,
+  DAY_2_EVENING = 5,
+}
 
 type TimeSlotDetails = {
   label: string;

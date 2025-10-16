@@ -2,6 +2,7 @@ import { getBookings } from "@/lib/bookings";
 import { getSheetData } from "@/lib/sheets";
 import { Session } from "@/types";
 import config from "@/utils/config";
+import { timeSlots } from "@/utils/timeSlots";
 
 const spreadsheetId = config.sessionsSheetId;
 const sessionRange = config.sessionsRange;
@@ -51,6 +52,8 @@ export const getSessions = async (): Promise<Session[]> => {
 
       const availableSeats = Math.max(0, maxPlayers - booked);
 
+      if (!Object.keys(timeSlots).includes(String(timeSlot))) return;
+
       return {
         id: id.replace(/\s+/g, ""), // sanification, removes all whitespace from ids
         timeSlot: Number(timeSlot) as Session["timeSlot"],
@@ -64,6 +67,7 @@ export const getSessions = async (): Promise<Session[]> => {
         availableSeats,
       };
     })
+    .filter((item) => item !== undefined)
     .sort((a, b) => {
       if (a.timeSlot !== b.timeSlot) {
         return a.timeSlot - b.timeSlot;

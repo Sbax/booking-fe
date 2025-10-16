@@ -10,6 +10,8 @@ For styling, **Tailwind CSS** and **DaisyUI** are used, while **ESLint** and **H
 
 The project also integrates Google Sheets for managing sessions and booking data and includes a rich email system powered by the **Resend** service for handling notifications. This combination of tools ensures a responsive, reliable, and maintainable frontend experience.
 
+An admin dashboard showing all bookings data is accessible through protected routes, authentication is handled by **PropelAuth**.
+
 The core tools and libraries can be explored further by visiting their official documentation:
 
 - [Next.js](https://nextjs.org/docs)
@@ -21,6 +23,7 @@ The core tools and libraries can be explored further by visiting their official 
 - [DaisyUI](https://daisyui.com/docs)
 - [ESLint](https://eslint.org/docs/latest)
 - [Husky](https://typicode.github.io/husky/#/)
+- [PropelAuth](https://docs.propelauth.com/)
 
 ## Getting Started
 
@@ -141,4 +144,22 @@ For email services, configure the following:
 
   ```bash
   MAIL_CONTACT=contact@example.com
+  ```
+
+### Authentication
+
+These variables configure PropelAuth integration.
+
+- **NEXT_PUBLIC_AUTH_URL**: Public base URL of your PropelAuth tenant. Used client-side for redirects and SDK initialization. Must start with https://.
+- **PROPELAUTH_API_KEY**: Server-side secret API key for validating sessions/calling management endpoints. Never expose to the browser.
+- **PROPELAUTH_VERIFIER_KEY**: Public (or provided) PEM key used to verify JWTs locally. Keep formatting with embedded \n characters if stored inline.
+- **PROPELAUTH_REDIRECT_URI**: Redirect/callback URL after authentication. Must match an allowed redirect in your PropelAuth dashboard.
+
+  Example:
+
+  ```bash
+  NEXT_PUBLIC_AUTH_URL=https://your-tenant.propel-auth.com
+  PROPELAUTH_API_KEY=pa-live-or-test-key-here
+  PROPELAUTH_VERIFIER_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_PRIVATE_KEY\n-----END PRIVATE KEY-----\n"
+  PROPELAUTH_REDIRECT_URI=https://example.com/api/auth/callback
   ```

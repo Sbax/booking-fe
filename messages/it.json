@@ -59,7 +59,22 @@
       "allDays": "Qualsiasi giorno",
       "allTimeSlots": "Qualsiasi fascia oraria"
     },
-    "loading": "Caricamento..."
+    "loading": "Caricamento...",
+    "Table": {
+      "timeSlot": "Fascia oraria",
+      "tableNumber": "Numero tavolo",
+      "title": "Titolo",
+      "ruleset": "Regolamento",
+      "masterName": "Master",
+      "description": "Descrizione",
+      "minPlayers": "Minimo giocatori",
+      "maxPlayers": "Massimo giocatori",
+      "availableSeats": "Posti disponibili"
+    },
+    "Totals": {
+      "bookingsTotal": "Totale sessioni",
+      "readyToStart": "Pronte a partire"
+    }
   },
   "Metadata": {
     "description": "Esempio per un frontend di prenotazioni",
